@@ -1,0 +1,21 @@
+{
+  "author": "AJ ONeal <coolaj86@gmail.com> (http://coolaj86.info)",
+  "name": "json2yaml",
+  "description": "A commandline utility to convert JSON to YAML / YML",
+  "keywords": ["yml", "yaml", "json", "cli", "util"],
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "json2yaml": "./cli.js",
+    "json2yml": "./cli.js"
+  },
+  "engines": {
+    "node": ">= 0.2.0"
+  },
+  "test": ["a", "b", "c"],
+  "dependencies": {
+    "remedial": "1.x"
+  },
+  "devDependencies": {},
+  "preferGlobal": true
+}
