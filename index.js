@@ -86,7 +86,7 @@
         }
     };
 
-    return '---' + handlers[typeOf(data)](data);
+    return '---' + handlers[typeOf(data)](data) + '\n';
   }
 
   module.exports.stringify = stringify;
