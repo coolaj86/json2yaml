@@ -1,5 +1,7 @@
-JSON to YAML
+json2yaml
 ===
+
+A command-line utility to convert JSON to YAML (meaning a `.json` file to a `.yml` file)
 
 The purpose of this utility is to pretty-print JSON in the human-readable YAML object notation
 (ignore the misnomer, YAML is not a Markup Language at all).
@@ -93,3 +95,12 @@ YAML can use either *whitespace and dashes* or *brackets and commas*.
 
 For human readability, the whitespace-based YAML is preferrable.
 For compression and computer readability, the JSON syntax of YAML is preferrable.
+
+Alias
+===
+
+`json2yaml` has the following aliases:
+
+  * `jsontoyaml`
+  * `json2yml`
+  * `jsontoyml`
