@@ -92,4 +92,4 @@ That is to say that all proper YAML parsers parse proper JSON.
 YAML can use either *whitespace and dashes* or *brackets and commas*.
 
 For human readability, the whitespace-based YAML is preferrable.
-For compression and computer readability, the syntax-based YAML is preferrable.
+For compression and computer readability, the JSON syntax of YAML is preferrable.
