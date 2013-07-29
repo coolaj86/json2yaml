@@ -34,6 +34,11 @@
           var output = ''
             ;
 
+          if (0 === x.length) {
+            output += '[]';
+            return output;
+          }
+
           indentLevel = indentLevel.replace(/$/, '  ');
           x.forEach(function (y) {
             // TODO how should `undefined` be handled?
@@ -54,6 +59,11 @@
       , "object": function (x) {
           var output = ''
             ;
+
+          if (0 === Object.keys(x).length) {
+            output += '{}';
+            return output;
+          }
 
           indentLevel = indentLevel.replace(/$/, '  ');
           Object.keys(x).forEach(function (k) {
