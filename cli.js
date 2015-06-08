@@ -59,23 +59,15 @@
 
     function readStdin() {
       var text = ''
-        , timeoutToken
         , stdin = process.stdin
         ;
-      
+
       stdin.resume();
 
-      // how to tell piping vs waiting for user input?
-      timeoutToken = setTimeout(function () {
-        cb(new Error('no stdin data'));
-        stdin.pause();
-      }, 1000);
-
       stdin.on('data', function (chunk) {
-        clearTimeout(timeoutToken);
         text += chunk;
       });
-      
+
       stdin.on('end', function () {
         cb(null, text);
       });
