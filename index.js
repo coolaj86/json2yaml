@@ -20,7 +20,7 @@
           return 'null';
         }
       , "number": function (x) {
-          return x;
+          return x+",";
         }
       , "boolean": function (x) {
           return x ? 'true' : 'false';
@@ -66,6 +66,8 @@
           }
 
           indentLevel = indentLevel.replace(/$/, '  ');
+          if(indentLevel.length > 6)
+            output += '{';
           Object.keys(x).forEach(function (k) {
             var val = x[k]
               , handler = handlers[typeOf(val)]
@@ -86,6 +88,8 @@
 
             output += '\n' + indentLevel + k + ': ' + handler(val);
           });
+          if(indentLevel.length > 6)
+            output += ' }';
           indentLevel = indentLevel.replace(/  /, '');
 
           return output;
