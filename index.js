@@ -30,6 +30,9 @@
           // the literal `true`, we always wrap strings in quotes
           return JSON.stringify(x);
         }
+      , "date": function(x) {
+          return x.toJSON();
+        }
       , "array": function (x) {
           var output = ''
             ;
@@ -50,10 +53,10 @@
             }
 
             output += '\n' + indentLevel + '- ' + handler(y);
-             
+
           });
           indentLevel = indentLevel.replace(/  /, '');
-          
+
           return output;
         }
       , "object": function (x) {
