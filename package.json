@@ -27,7 +27,7 @@
   },
   "test": "echo 'error no test'; exit 1",
   "dependencies": {
-    "remedial": "1.x"
+    "typeof": "1.0.0"
   },
   "devDependencies": {},
   "preferGlobal": true

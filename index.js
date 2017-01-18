@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var typeOf = require('remedial').typeOf
+  var typeOf = require('typeof')
     ;
 
   function stringify(data) {
