@@ -6,7 +6,9 @@
     wrap = require('wordwrap')(maxText);
 
   function stringify(data) {
-    var handlers, indentLevel = '';
+    var handlers = '';
+    var indentLevel = -1;
+    var indent = '  ';
 
     handlers = {
       "undefined": function () {
@@ -30,12 +32,12 @@
           return JSON.stringify(x);
         }
         var text = wrap(x).split(/\\n|\n/);
-        indentLevel = indentLevel.replace(/$/, '  ');
+        indentLevel++;
         text.forEach(function (y) {
-          output += '\n' + indentLevel + y;
+          output += '\n' + indent.repeat(indentLevel) + y;
 
         });
-        indentLevel = indentLevel.replace(/  /, '');
+        indentLevel--;
 
         return output;
       },
@@ -50,7 +52,7 @@
           return output;
         }
 
-        indentLevel = indentLevel.replace(/$/, '  ');
+        indentLevel++;
         x.forEach(function (y) {
           // TODO how should `undefined` be handled?
           var handler = handlers[typeOf(y)];
@@ -59,10 +61,10 @@
             throw new Error('what the crap: ' + typeOf(y));
           }
 
-          output += '\n' + indentLevel + '- ' + handler(y);
+          output += '\n' + indent.repeat(indentLevel) + '- ' + handler(y);
 
         });
-        indentLevel = indentLevel.replace(/  /, '');
+        indentLevel--;
 
         return output;
       },
@@ -74,7 +76,7 @@
           return output;
         }
 
-        indentLevel = indentLevel.replace(/$/, '  ');
+        indentLevel++;
         Object.keys(x).forEach(function (k) {
           var val = x[k],
             handler = handlers[typeOf(val)];
@@ -92,9 +94,9 @@
             throw new Error('what the crap: ' + typeOf(val));
           }
 
-          output += '\n' + indentLevel + k + ': ' + handler(val);
+          output += '\n' + indent.repeat(indentLevel) + k + ': ' + handler(val);
         });
-        indentLevel = indentLevel.replace(/  /, '');
+        indentLevel--;
 
         return output;
       },
